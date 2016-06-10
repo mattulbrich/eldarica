@@ -245,7 +245,8 @@ class HornPreprocessor(
        if (!(badHeads contains head.pred)) {
          if ((uniqueDefs contains head.pred) ||
              body.size > 1 ||
-             (body.size == 1 && head.pred == body.head.pred)) {
+             (body.size == 1 && head.pred == body.head.pred) ||
+             head.pred.toString().startsWith("INIT/")) {
            badHeads += head.pred
            uniqueDefs -= head.pred
          } else {
